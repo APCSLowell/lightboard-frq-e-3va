@@ -31,11 +31,11 @@ public class LightBoard
       if(lights[r][col])
         count++;
     }
-    if(lights[r][c] && count % 2 == 0)
+    if(lights[row][col] && count % 2 == 0)
       return false;
-    else if(!lights[r][c] && count % 3 == 0)
+    else if(!lights[row][col] && count % 3 == 0)
       return true;
-    return lights[r][c];
+    return lights[row][ccol];
   }
   public boolean[][] getLights()
   {
