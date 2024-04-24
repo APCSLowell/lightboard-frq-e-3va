@@ -11,7 +11,12 @@ public class LightBoard
   public LightBoard(int numRows, int numCols)
   {
     /* to be implemented in part (a) */
-
+    lights = new boolean[numRows][numCols];
+    for(int i = 0; i < lights.length; i++) {
+      for(int j = 0; j < lights[i].length; j++) {
+        lights[i][j] = Math.random() < 0.4;
+      }
+    }
   }
 
   /** Evaluates a light in row index row and column index col and returns a status
@@ -21,8 +26,16 @@ public class LightBoard
   public boolean evaluateLight(int row, int col)
   {
     /* to be implemented in part (b) */
-   
- 
+    int count = 0;
+    for(int i = 0; i < lights.length; i++) {
+      if(lights[r][col])
+        count++;
+    }
+    if(lights[r][c] && count % 2 == 0)
+      return false;
+    else if(!lights[r][c] && count % 3 == 0)
+      return true;
+    return lights[r][c];
   }
   public boolean[][] getLights()
   {
